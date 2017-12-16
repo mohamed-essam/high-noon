@@ -12,4 +12,12 @@ export class MainPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleSearch($event) {
+    console.log("Starting search")
+    $event.subscribe(results => this.handleResult(results))
+  }
+
+  private handleResult(results) {
+    console.log(results)
+  }
 }

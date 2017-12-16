@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -10,7 +12,8 @@ import { ResultComponent } from './result/result.component';
 import { ResultDetailsComponent } from './result-details/result-details.component';
 import { SearchComponent } from './search/search.component';
 import { TopbarComponent } from './topbar/topbar.component';
-import { SearchServiceService } from './search-service.service';
+import { SearchService } from './search.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -25,9 +28,12 @@ import { SearchServiceService } from './search-service.service';
     TopbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [SearchServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [SearchService],
 })
 export class AppModule { }

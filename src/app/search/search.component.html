@@ -1,3 +1,4 @@
-<p>
-  search works!
-</p>
+<form [formGroup]="searchForm" (ngSubmit)="search($event)">
+    <input formControlName="text" type="text" placeholder="Enter your query" class="searchInput">
+  <button type="submit" class="searchButton">Search</button>
+</form>
