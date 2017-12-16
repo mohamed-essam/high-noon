@@ -1,3 +1,5 @@
-<p>
-  results works!
-</p>
+<ul class="results">
+  <li *ngFor="let result of results">
+    <app-result [result]="result" ></app-result>
+  </li>
+</ul>
