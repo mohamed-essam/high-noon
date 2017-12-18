@@ -1,0 +1,45 @@
+/* General CSS Setup */
+body{
+  background-color: lightblue;
+  font-family: "Ubuntu-Italic", "Lucida Sans", helvetica, sans;
+}
+
+/* container */
+.container {
+  padding: 5% 5%;
+}
+
+/* CSS talk bubble */
+.talk-bubble {
+	margin: 0px;
+  display: inline-block;
+  position: relative;
+	width: 90%;
+	height: auto;
+	background-color: lightblue;
+}
+
+.tri-right.left-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -20px;
+	right: auto;
+  top: 38px;
+	bottom: auto;
+	border: 12px solid;
+	border-color: lightblue lightblue transparent transparent;
+}
+
+/* talk bubble contents */
+.talktext{
+  padding: 1em;
+	text-align: left;
+  line-height: 1.5em;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
