@@ -1,4 +1,6 @@
-<div (mouseenter) ="mouseEnter()"  (mouseleave) ="mouseLeave()">
-  <p>{{ result.title }}</p>
-  <app-result-details></app-result-details>
+<div (mouseenter) ="mouseEnter()"  (mouseleave) ="mouseLeave()" >
+  <div class="result center">
+    <a href="{{ result.url }}" class="resultText">{{ result.title }}</a>
+  </div>
+  <app-result-details class="center"></app-result-details>
 </div>
