@@ -1,6 +1,7 @@
 .center {
   display: inline-block;
   width: 40vw;
+  margin-bottom: 10px ;
 }
 
 .result {
@@ -14,12 +15,14 @@
 }
 
 .resultText {
-  line-height: 30px;
-  margin-left: 10px;
+  color: black;
+  margin-top: 4px;
+  margin-left: -25px;
 }
 
-p{
-  color: red  ;
-  font-size: 19px;
-  width: 200px;
+.logo {
+  margin-top: -1px;
+  margin-bottom: 4px;
+  max-height: 24px;
+  max-width: 24px;
 }
