@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SearchService } from '../search.service'
 
 @Component({
   selector: 'app-main-page',
@@ -7,14 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private searchService: SearchService) { }
 
   ngOnInit() {
   }
 
   handleSearch($event) {
     console.log("Starting search")
-    $event.subscribe(results => this.handleResult(results))
+    this.router.navigate(['/search'], { queryParams: { q: $event } })
   }
 
   private handleResult(results) {

@@ -20,7 +20,7 @@ const randomHints = [
 })
 export class SearchComponent implements OnInit {
   @Output()
-  searched: EventEmitter<Observable<Result[]>> = new EventEmitter();
+  searched: EventEmitter<string> = new EventEmitter();
 
   searchForm = this.fb.group({
     text: [""]
@@ -28,8 +28,7 @@ export class SearchComponent implements OnInit {
 
   randomHint: string;
 
-  constructor(private fb: FormBuilder, private searchService: SearchService) {
-    this.ngOnInit();
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -38,7 +37,11 @@ export class SearchComponent implements OnInit {
 
   search($event) {
     var query = this.searchForm.controls.text.value;
-    this.searched.emit(this.searchService.searchFor(query))
+    this.searched.emit(query)
     console.log(`Searching for: ${query}`)
+  }
+
+  putQuery(query: string) {
+    this.searchForm.controls.text.setValue(query)
   }
 }

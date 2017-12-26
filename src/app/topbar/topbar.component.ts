@@ -1,6 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable'
 import { Result } from '../result'
+import { SearchComponent } from '../search/search.component'
 
 @Component({
   selector: 'app-topbar',
@@ -9,19 +10,21 @@ import { Result } from '../result'
 })
 export class TopbarComponent implements OnInit {
   @Output()
-  searched: EventEmitter<Observable<Result[]>> = new EventEmitter();
+  searched: EventEmitter<string> = new EventEmitter();
+  @ViewChild( SearchComponent ) searchComponent: SearchComponent;
+
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  handleSearch($event) {
-    console.log("Starting search")
-    $event.subscribe(results => this.handleResult(results))
+  putQuery(query: string) {
+    this.searchComponent.putQuery(query)
   }
 
-  private handleResult(results) {
-    console.log(results)
+  handleSearch($event) {
+    console.log("Starting search")
+    this.searched.emit($event)
   }
 }
